@@ -12,7 +12,7 @@
     <artifactId>calculator</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>calculator</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Project to apply as a candidate to WIT Software</description>
     <properties>
         <java.version>21</java.version>
     </properties>

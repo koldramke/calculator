@@ -21,7 +21,7 @@ public class CalculatorService {
 
     public BigDecimal divide(BigDecimal a, BigDecimal b) {
         if (b.compareTo(BigDecimal.ZERO) == 0) {
-            throw new ArithmeticException("Division by zero is not allowed");
+            throw new ArithmeticException("ERROR: Division by zero isn't possible.. Try Again, please.");
         }
         return a.divide(b);
     }
