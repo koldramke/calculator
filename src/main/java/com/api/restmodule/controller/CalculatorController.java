@@ -1,50 +1,36 @@
 package com.api.restmodule.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 import com.api.calculatormodule.dataresponse.OperationResponse;
 import com.api.calculatormodule.service.CalculatorService;
 
 import java.math.BigDecimal;
 
 @RestController
+@RequestMapping("/calculator")
 public class CalculatorController {
 
-    private final CalculatorService calculatorService;
-
-    public CalculatorController(CalculatorService calculatorService) {
-        this.calculatorService = calculatorService;
-    }
+    @Autowired
+    private CalculatorService calculatorService;
 
     @GetMapping("/sum")
     public OperationResponse add(@RequestParam BigDecimal a, @RequestParam BigDecimal b) {
-        BigDecimal result = calculatorService.add(a, b);
-        return new OperationResponse(result);
+        return new OperationResponse(calculatorService.add(a, b));
     }
 
     @GetMapping("/sub")
     public OperationResponse subtract(@RequestParam BigDecimal a, @RequestParam BigDecimal b) {
-        BigDecimal result = calculatorService.subtract(a, b);
-        return new OperationResponse(result);
+        return new OperationResponse(calculatorService.subtract(a, b));
     }
 
     @GetMapping("/mul")
     public OperationResponse multiply(@RequestParam BigDecimal a, @RequestParam BigDecimal b) {
-        BigDecimal result = calculatorService.multiply(a, b);
-        return new OperationResponse(result);
+        return new OperationResponse(calculatorService.multiply(a, b));
     }
 
     @GetMapping("/div")
     public OperationResponse divide(@RequestParam BigDecimal a, @RequestParam BigDecimal b) {
-
-        if (b.compareTo(BigDecimal.ZERO) == 0) {
-            throw new ArithmeticException();
-        }
-        BigDecimal result = calculatorService.divide(a, b);
-
-        return new OperationResponse(result);
-
+        return new OperationResponse(calculatorService.divide(a, b));
     }
 }

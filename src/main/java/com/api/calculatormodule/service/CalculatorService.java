@@ -1,7 +1,6 @@
 package com.api.calculatormodule.service;
 
 import org.springframework.stereotype.Service;
-
 import java.math.BigDecimal;
 
 @Service
@@ -21,7 +20,7 @@ public class CalculatorService {
 
     public BigDecimal divide(BigDecimal a, BigDecimal b) {
         if (b.compareTo(BigDecimal.ZERO) == 0) {
-            throw new ArithmeticException("ERROR: Division by zero isn't possible.. Try Again, please.");
+            throw new ArithmeticException("Cannot divide by zero");
         }
         return a.divide(b);
     }
