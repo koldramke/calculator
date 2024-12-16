@@ -40,7 +40,7 @@ public class CalculatorController {
     public OperationResponse divide(@RequestParam BigDecimal a, @RequestParam BigDecimal b) {
 
         if (b.compareTo(BigDecimal.ZERO) == 0) {
-            throw new ArithmeticException("ERROR: Division by zero isn't possible.. Try Again, please.");
+            throw new ArithmeticException();
         }
         BigDecimal result = calculatorService.divide(a, b);
 
