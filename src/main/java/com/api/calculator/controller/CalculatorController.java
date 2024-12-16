@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.api.calculator.dataresponse.OperationResponse;
 import com.api.calculator.service.CalculatorService;
 
 import java.math.BigDecimal;
@@ -17,23 +18,33 @@ public class CalculatorController {
         this.calculatorService = calculatorService;
     }
 
-    @GetMapping("/a")
-    public BigDecimal add(@RequestParam BigDecimal a, @RequestParam BigDecimal b) {
-        return calculatorService.add(a, b);
+    @GetMapping("/sum")
+    public OperationResponse add(@RequestParam BigDecimal a, @RequestParam BigDecimal b) {
+        BigDecimal result = calculatorService.add(a, b);
+        return new OperationResponse(result);
     }
 
-    @GetMapping("/s")
-    public BigDecimal subtract(@RequestParam BigDecimal a, @RequestParam BigDecimal b) {
-        return calculatorService.subtract(a, b);
+    @GetMapping("/sub")
+    public OperationResponse subtract(@RequestParam BigDecimal a, @RequestParam BigDecimal b) {
+        BigDecimal result = calculatorService.subtract(a, b);
+        return new OperationResponse(result);
     }
 
-    @GetMapping("/m")
-    public BigDecimal multiply(@RequestParam BigDecimal a, @RequestParam BigDecimal b) {
-        return calculatorService.multiply(a, b);
+    @GetMapping("/mul")
+    public OperationResponse multiply(@RequestParam BigDecimal a, @RequestParam BigDecimal b) {
+        BigDecimal result = calculatorService.multiply(a, b);
+        return new OperationResponse(result);
     }
 
-    @GetMapping("/d")
-    public BigDecimal divide(@RequestParam BigDecimal a, @RequestParam BigDecimal b) {
-        return calculatorService.divide(a, b);
+    @GetMapping("/div")
+    public OperationResponse divide(@RequestParam BigDecimal a, @RequestParam BigDecimal b) {
+
+        if (b.compareTo(BigDecimal.ZERO) == 0) {
+            throw new ArithmeticException("ERROR: Division by zero isn't possible.. Try Again, please.");
+        }
+        BigDecimal result = calculatorService.divide(a, b);
+
+        return new OperationResponse(result);
+
     }
 }
