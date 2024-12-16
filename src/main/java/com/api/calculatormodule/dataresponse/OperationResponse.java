@@ -1,4 +1,4 @@
-package com.api.calculator.dataresponse;
+package com.api.calculatormodule.dataresponse;
 
 import java.math.BigDecimal;
 

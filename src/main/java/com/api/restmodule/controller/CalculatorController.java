@@ -1,11 +1,11 @@
-package com.api.calculator.controller;
+package com.api.restmodule.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.calculator.dataresponse.OperationResponse;
-import com.api.calculator.service.CalculatorService;
+import com.api.calculatormodule.dataresponse.OperationResponse;
+import com.api.calculatormodule.service.CalculatorService;
 
 import java.math.BigDecimal;
 
