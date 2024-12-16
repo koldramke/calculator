@@ -18,6 +18,7 @@ public class CalculatorController {
         this.calculatorService = calculatorService;
     }
 
+    // http GET "http://localhost:3000/sum?a=1&b=2"
     @GetMapping("/sum")
     public OperationResponse add(@RequestParam BigDecimal a, @RequestParam BigDecimal b) {
         BigDecimal result = calculatorService.add(a, b);
