@@ -1,4 +1,4 @@
-package com.api.calculatormodule;
+package com.api.restmodule;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
