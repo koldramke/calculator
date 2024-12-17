@@ -1,0 +1,3 @@
+[submodule "calculatorV2"]
+	path = calculatorV2
+	url = https://github.com/koldramke/calculatorV2.git
