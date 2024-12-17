@@ -12,7 +12,8 @@
     <artifactId>calculator</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>calculator</name>
-    <description>Project to apply as a candidate to WIT Software</description>
+    <date>19 December 2024</date>
+    <description>API calculator Project 2024</description>
     <properties>
         <java.version>21</java.version>
     </properties>
